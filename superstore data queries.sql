@@ -70,3 +70,12 @@ select
 from store.superstore
 group by customer_name
 having count(*) > 10;
+
+-- Q9: What is average shipping period for different shipping mode?
+
+select
+	avg(datediff(day, order_date,ship_date)) as 'Average Delay in Shipping',
+	Ship_Mode
+from store.superstore
+group by Ship_Mode
+order by 'Average Delay in Shipping' desc;
