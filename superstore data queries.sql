@@ -30,12 +30,14 @@ select
 	round(sum(Profit),1) as 'Sum of Total Profit',
 	Category
 from store.superstore
-group by Category;
+group by Category
+order by 'Sum of Total Sales' desc;
 
 -- Q5: Top 5 SubCategory items by total Quantity sold
 
 select top 5
 sub_category,
+round(sum(Sales),0) as 'Total Sales by Category',
 sum(quantity) as 'Top Sub category'
 from store.superstore
 group by Sub_Category
