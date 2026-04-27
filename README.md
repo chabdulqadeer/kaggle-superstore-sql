@@ -22,6 +22,8 @@ SQL Server, T-SQL, SSMS
 2. **Top Category**: Technology at $836,154 sales
 3. **Highest Avg Discount Region**: Central at 23.7%
 4. **Top Customer**: Sean Miller with 17 orders, $25,043 sales
+5. **Top SubCategory by Quantity**: 207355 with 6071 units sold
+6. **total Sales and total Profit for each Category**: 839893.3	with $[146543.4] total profit
 
 ## How to Run
 1. Download dataset from Kaggle: Superstore Sales by Himanshu Uike
