@@ -228,4 +228,36 @@ from store.superstore
 group by State_Province, City
 order by 'Return on Sales' desc;
 
+/*
+The Task us the monthly sale and monthly orders of each categroy and its sub_category
+and its calculate its month on month change in orders and sales as well.
+*/
+
+with monthlysale as (
+	select
+		year(order_date) as [Year],
+		month(order_date) as [Month],
+		Category,
+		Sub_category,
+		sum(sales) as [Current Month Sale],
+		lag(sum(sales)) over(partition by Category, Sub_category order by year(order_date),month(order_date)) as [Previous Month Sale],
+		count(Row_id) as [Current Month Order],
+		lag(count(Row_id)) over(partition by Category, Sub_category order by year(order_date),month(order_date)) as [Previous Month Order]
+	from store.superstore
+	group by year(order_date),month(order_date),Category,Sub_Category
+	)
+	select
+	[YEAR],
+	[MONTH],
+	Category,
+	Sub_category,
+	round([Current Month Sale],0),
+	round([Previous Month Sale],0),
+	round(100 * (([Current Month Sale] - [Previous Month Sale])/[Previous Month Sale]),2) as [MoM Change],
+	[Current Month Order],
+	[Previous Month Sale],
+	round(100 * (([Current Month Order] - [Previous Month Order])/[Previous Month Order]),0) as [MoM Change]
+	from monthlysale;
+
+
 
