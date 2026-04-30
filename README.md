@@ -41,6 +41,8 @@ SQL Server, T-SQL, SSMS
 21.	Q21: find the most selling category and sub category 
 22.	Q22: Now, the question is to see which category and sub category are most profitable
 23.	Q23: Now, The task is to find which state generate most of the sales and Profit and its Return on Sales
+24.	The Task us the monthly sale and monthly orders of each categroy and its sub_category and its calculate its month on month change in orders and sales as well.
+
 
 ## How to Run
 1. Download dataset from Kaggle: Superstore Sales by Himanshu Uike
